@@ -19,6 +19,7 @@ def find_and_print(messages):
             print(name)
         else:
             continue
+            
 find_and_print({
     "Bob":"My name is Bob. I'm 18 years old.",
     "Mary":"Hello, glad to meet you.",
@@ -27,6 +28,7 @@ find_and_print({
     "Vivian":"I will vote for Donald Trump next week",
     "Jenny":"Good morning."
 })
+
 
 # Task 2
 # Using a loop to complete functions below to calculate the sum of bonus of all employees in TWD and print it.
@@ -99,6 +101,7 @@ calculate_sum_of_bonus({
     ]
 }) # call calculate_sum_of_bonus function
 
+
 # Task 3
 # Find out whose middle name is unique among all the names, and print it. You can assume every input is a Chinese name with 2 ~ 3 words.
 # If there are only 2 words in a name, the middle name is defined as the second word.
@@ -122,6 +125,7 @@ func("彭⼤牆", "王明雅", "吳安") # print 彭⼤牆
 func("郭靜雅", "王立強", "林靜宜", "郭立恆", "林花花") # print 林花花
 func("郭宣雅", "林靜宜", "郭宣恆", "林靜花") # print 沒有
 
+
 # Task 4
 # There is a number sequence: 0, 4, 3, 7, 6, 10, 9, 13, 12, 16, 15, … 
 # Find out the nth term in this sequence.
@@ -134,6 +138,7 @@ def get_number(index):
         else:   
             result=result-1
     print(result)
+    
 get_number(1) # print 4
 get_number(5) # print 10
 get_number(10) # print 15
