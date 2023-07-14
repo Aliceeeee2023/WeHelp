@@ -1,1 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <title>Week2</title>
+    </head>
+    <body>
+        <script>
+            // Task 1
+            function findAndPrint(messages){
+                // 依照年紀判斷
+                // 依照合法年齡判斷（=台灣合法年齡為18歲）
+                // 依照是否有投票權判斷（=美國有投票權同樣為18歲）
+                for(let name in messages){ // 設置一個變數name
+                    if(messages[name].includes("18 years")){
+                        console.log(name);
+                    }else if(messages[name].includes("legal age")){
+                        console.log(name);
+                    }else if(messages[name].includes("vote")){
+                        console.log(name);
+                    }else{
+                        continue;
+                    }
+                }
+            }
+            findAndPrint({
+                "Bob":"My name is Bob. I'm 18 years old.",
+                "Mary":"Hello, glad to meet you.",
+                "Copper":"I'm a college student. Nice to meet you.",
+                "Leslie":"I am of legal age in Taiwan.",
+                "Vivian":"I will vote for Donald Trump next week",
+                "Jenny":"Good morning."
+            });
 
+            // Task 2
+
+            // 獎金原始值為salary*0.05
+            // performance：『above average』*2倍、『average』*1倍、『below average』*0.5倍
+            // role：『CEO』*1.5倍、『Engineer』*1.25倍、『Sales』*1倍
+
+            function calculateSumOfBonus(data){
+                let newdata=[];
+                for(let [name, detail] of Object.entries(data)){
+                    newdata=detail;
+                }
+
+                let answer=[];
+                for(let i=0;i<newdata.length;i++){
+                    let bonus=0;
+                    for(let [datatype, content] of Object.entries(newdata[i])){
+                        if(datatype =="salary"){
+                            if(typeof content === "string" && content.includes("USD")){
+                                let salary = content.replace(/[^\d.-]/g, '');
+                                salary=Number(salary);
+                                bonus=salary*30*0.05
+                            }else if(typeof content === "string"){
+                                let salary = content.replace(/[^\d.-]/g, '');
+                                salary=Number(salary);
+                                bonus=salary*0.05
+                            }else{
+                                bonus=content*0.05
+                            }
+                        }else if(datatype =="performance"){
+                            if(content == "above average"){
+                                bonus=bonus*2
+                            }else if(content == "average"){
+                                bonus=bonus*1
+                            }else if(content == "below average"){
+                                bonus=bonus*0.5
+                            }
+                        }else if(datatype =="role"){
+                            if(content == "CEO"){
+                                bonus=bonus*1.5
+                            }else if(content == "Engineer"){
+                                bonus=bonus*1.25
+                            }else if(content == "Sales"){
+                                bonus=bonus*1
+                            }
+                        }
+                    }
+                    answer[i]=bonus;
+                }
+                let total=0
+                for(let x=0;x<answer.length;x++){
+                    total=total+answer[x];
+                }
+                if (total<=10000){
+                    console.log(total);
+                }
+            }
+            calculateSumOfBonus({
+                "employees":[
+                    {
+                        "name":"John",
+                        "salary":"1000USD",
+                        "performance":"above average",
+                        "role":"Engineer"
+                    },
+                    {
+                        "name":"Bob",
+                        "salary":60000,
+                        "performance":"average",
+                        "role":"CEO"
+                    },
+                    {
+                        "name":"Jenny",
+                        "salary":"50,000",
+                        "performance":"below average",
+                        "role":"Sales"
+                    }
+                ]
+            }); // call calculateSumOfBonus function
+
+            // Task 3
+            function func(...data){
+                let words=[];
+                for(let i=0;i<data.length;i++){
+                    word=data[i][1];
+                    words.push(word);
+                }
+                let location=[];
+                for(let [index, only] of words.entries()){
+                    let times = words.filter(item => item === only).length;
+                    if(times === 1){
+                        location.push(index);
+                    }
+                }
+                if (location.length === 0){
+                    console.log("沒有")
+                }else{
+                    for(let x=0;x<location.length;x++){
+                        final=location[x];
+                        console.log(data[final]);
+                    }
+                }
+                
+            }
+            func("彭⼤牆", "王明雅", "吳明"); // print 彭⼤牆
+            func("郭靜雅", "王立強", "林靜宜", "郭立恆", "林花花"); // print 林花花
+            func("郭宣雅", "林靜宜", "郭宣恆", "林靜花"); // print 沒有
+
+            // Task 4
+            function getNumber(index){
+                result=0
+                for(let i=0;i<index;i++)
+                    if(i%2==0){
+                        result=result+4;
+                    }else{
+                        result=result-1;
+                    }
+                console.log(result)
+            }
+            getNumber(1); // print 4
+            getNumber(5); // print 10
+            getNumber(10); // print 15
+        </script>
+    </body>
+</html>
