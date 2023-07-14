@@ -13,6 +13,8 @@
                 // 依照年紀判斷
                 // 依照合法年齡判斷（=台灣合法年齡為18歲）
                 // 依照是否有投票權判斷（=美國有投票權同樣為18歲）
+                // Key words："18 years", "legal age", "vote"
+                
                 for(let name in messages){
                     if(messages[name].includes("18 years")){
                         console.log(name);
@@ -42,6 +44,7 @@
                 // 獎金原始值為salary*0.05
                 // performance：『above average』*2倍、『average』*1倍、『below average』*0.5倍
                 // role：『CEO』*1.5倍、『Engineer』*1.25倍、『Sales』*1倍
+                
                 let newdata=[];
                 for(let [name, detail] of Object.entries(data)){
                     newdata=detail;
