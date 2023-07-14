@@ -27,35 +27,36 @@ find_and_print({
     "Jenny":"Good morning."
 })
 
-# Task 2
+# Task 2（Finish）
 # Using a loop to complete functions below to calculate the sum of bonus of all employees in TWD and print it.
 # 1. Bonus should depend on salary, performance and role fields. Define your own rules and calculate a bonus for each employee based on it.
 # 2. The sum of bonus of all employees cannot exceed 10000 TWD based on your rules and example data.
 # 3. You can assume the USD to TWD Exchange Rate is 30.
 # 4. Salary is default to TWD if there is no specific mark
 
+# 獎金原始值為salary*0.05
+# performance：『above average』*2倍、『average』*1倍、『below average』*0.5倍
+# role：『CEO』*1.5倍、『Engineer』*1.25倍、『Sales』*1倍
+
 def calculate_sum_of_bonus(data):
-    # 獎金原始值為salary*0.05
-    # performance：『above average』*2倍、『average』*1倍、『below average』*0.5倍
-    # role：『CEO』*1.5倍、『Engineer』*1.25倍、『Sales』*1倍
-  
-    newdata=[] 
+    newdata=[] #
     for name, detail in data.items():
         newdata=detail
     answer=[0]*len(newdata)
     for i in range(len(newdata)):
-        bonus=0 #
+        bonus=0
         for datatype, content in newdata[i].items():
             if datatype == "salary":
-                if isinstance(content, str) and "USD" in content: 
-                    bonus=int(content[:-3])*0.05*30 
-                elif isinstance(content, str) and "," in content:
-                    content = content.replace(",", "") 
-                    bonus=int(content)*0.05                    
+                if isinstance(content, str) and "USD" in content:
+                    salary=''.join(filter(str.isdigit, content))
+                    bonus=int(salary)*0.05*30
+                elif isinstance(content, str):
+                    salary=''.join(filter(str.isdigit, content))
+                    bonus=int(salary)*0.05                    
                 else:
-                    bonus=content*0.05 
+                    bonus=int(content)*0.05
             elif datatype == "performance":
-                if content == "above average": 
+                if content == "above average":
                     bonus=bonus*2
                 elif content == "average":
                     bonus=bonus*1
@@ -69,8 +70,10 @@ def calculate_sum_of_bonus(data):
                 elif content == "Sales":
                     bonus=bonus*1
             answer[i]=bonus
-    if sum(answer)<=10000: 
-        print("{:.0f}".format(sum(answer))) 
+    if sum(answer)<=10000: # sum(answer)
+        print("{:.0f}".format(sum(answer)))
+    else:
+        print("已超出預算")
 
 calculate_sum_of_bonus({
     "employees":[
