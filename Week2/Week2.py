@@ -35,11 +35,11 @@ find_and_print({
 # 3. You can assume the USD to TWD Exchange Rate is 30.
 # 4. Salary is default to TWD if there is no specific mark
 
-# 獎金原始值為salary*0.05
-# performance：『above average』*2倍、『average』*1倍、『below average』*0.5倍
-# role：『CEO』*1.5倍、『Engineer』*1.25倍、『Sales』*1倍
-
 def calculate_sum_of_bonus(data):
+    # 獎金原始值為salary*0.05
+    # performance：『above average』*2倍、『average』*1倍、『below average』*0.5倍
+    # role：『CEO』*1.5倍、『Engineer』*1.25倍、『Sales』*1倍
+    
     newdata=[] #
     for name, detail in data.items():
         newdata=detail
