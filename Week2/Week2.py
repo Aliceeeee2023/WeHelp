@@ -28,7 +28,7 @@ find_and_print({
     "Jenny":"Good morning."
 })
 
-# Task 2（Finish）
+# Task 2
 # Using a loop to complete functions below to calculate the sum of bonus of all employees in TWD and print it.
 # 1. Bonus should depend on salary, performance and role fields. Define your own rules and calculate a bonus for each employee based on it.
 # 2. The sum of bonus of all employees cannot exceed 10000 TWD based on your rules and example data.
