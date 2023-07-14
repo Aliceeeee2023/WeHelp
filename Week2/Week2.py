@@ -100,7 +100,8 @@ calculate_sum_of_bonus({
 }) # call calculate_sum_of_bonus function
 
 # Task 3
-# Find out whose middle name is unique among all the names, and print it. You can assume every input is a Chinese name with 2 ~ 3 words. If there are only 2 words in a name, the middle name is defined as the second word.
+# Find out whose middle name is unique among all the names, and print it. You can assume every input is a Chinese name with 2 ~ 3 words.
+# If there are only 2 words in a name, the middle name is defined as the second word.
 
 def func(*data):
     words=[]
