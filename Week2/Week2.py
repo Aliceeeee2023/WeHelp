@@ -1,5 +1,6 @@
 # Task 1
-# We have example messages from 6 persons in JSON format. There are at least 3 persons who are older than 17. Using a loop to find out those who are most probably older than 17 years old based on example messages. Print their names in the console.
+# We have example messages from 6 persons in JSON format. There are at least 3 persons who are older than 17.
+# Using a loop to find out those who are most probably older than 17 years old based on example messages. Print their names in the console.
 
 def find_and_print(messages):
     # 依照年紀判斷
