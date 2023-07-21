@@ -11,7 +11,6 @@ finaldata=data["result"]["results"]
 
 with open("attraction.csv", mode="w", newline="", encoding="utf-8") as file:
     attraction=csv.writer(file)
-    attraction.writerow(["景點名稱","區域","經度","緯度","第⼀張圖檔網址"])
 
     for final in finaldata:
 
