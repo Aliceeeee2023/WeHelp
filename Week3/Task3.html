@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <title>Welcome to MyHome</title>
+        <link rel="stylesheet" type="text/css" href="Week-1.css" />
+    </head>
+    <body class="website">
+        <div class="top">
+            <div class="w1">My Website</div>
+            <div class="w2">
+                <div class="w3">Item1</div>
+                <div class="w3">Item2</div>
+                <div class="w3">Item3</div>
+                <div class="w3">Item4</div>
+            </div>
+            <div class="w4">
+                <div class="w5"></div><img src="menu.png" height="28px"/></div>
+            </div>
+        </div>
+        <div class="first">
+            <div class="second">Welcome to MyHome</div>
+        </div>
+        <div class="out">
+            <div class="main">
+                <div class="main1">
+                    <div class="picture"><img src="picture.png" width="80px" height="50px"></div>
+                    <div class="word">Promotion 1</div>
+                </div>
+                <div class="main2">
+                    <div class="picture"><img src="picture.png" width="80px" height="50px"></div>
+                    <div class="word">Promotion 2</div>
+                </div>
+                <div class="main3">
+                    <div class="picture"><img src="picture.png" width="80px" height="50px"></div>
+                    <div class="word">Promotion 3</div>
+                </div>
+            </div>
+        </div>
+        <div class="out">
+            <div class="main0">
+                <div class="main4">
+                    <div class="picture1"><img src="picture.png"/></div>
+                    <div class="word1">Title 1</div>
+                </div>
+                <div class="main5">
+                    <div class="picture1"><img src="picture.png"/></div>
+                    <div class="word1">Title 2</div>
+                </div>                
+                <div class="main6">
+                    <div class="picture1"><img src="picture.png"/></div>
+                    <div class="word1">Title 3</div>
+                </div>
+                <div class="main7">
+                    <div class="picture1"><img src="picture.png"/></div>
+                    <div class="word1">Title 4</div>
+                </div>
+                <div class="main8">
+                    <div class="picture1"><img src="picture.png"/></div>
+                    <div class="word1">Title 5</div>
+                </div>
+                <div class="main9">
+                    <div class="picture1"><img src="picture.png"/></div>
+                    <div class="word1">Title 6</div>
+                </div>
+                <div class="main10">
+                    <div class="picture1"><img src="picture.png"/></div>
+                    <div class="word1">Title 7</div>
+                </div>
+                <div class="main11">
+                    <div class="picture1"><img src="picture.png"/></div>
+                    <div class="word1">Title 8</div>
+                </div>                
+                <div class="main12">
+                    <div class="picture1"><img src="picture.png"/></div>
+                    <div class="word1">Title 9</div>
+                </div>
+                <div class="main13">
+                    <div class="picture1"><img src="picture.png"/></div>
+                    <div class="word1">Title 10</div>
+                </div>
+                <div class="main14">
+                    <div class="picture1"><img src="picture.png"/></div>
+                    <div class="word1">Title 11</div>
+                </div>
+                <div class="main15">
+                    <div class="picture1"><img src="picture.png"/></div>
+                    <div class="word1">Title 12</div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function getdata(){
+                return fetch("https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json").then(function(response){
+                    return response.json();
+                }).then(function(data){
+                    let result=data.result.results;
+                  
+                    for(let i=0;i<3;i++){
+                        let promotion=document.querySelector(`.main${i + 1} .word`);
+                        promotion.textContent = result[i].stitle;
+                        let promotionpic=document.querySelector(`.main${i + 1} .picture img`);
+                        // pic=result[i].file.split("https://")[1];
+                        promotionpic.src="https://"+result[i].file.split("https://")[1];
+                    }
+
+                    for(let i=3;i<15;i++){
+                        let title=document.querySelector(`.main${i + 1} .word1`);
+                        title.textContent = result[i].stitle;
+                        let titlepic=document.querySelector(`.main${i + 1} .picture1 img`);
+                        // pic=result[i].file.split("https://")[1];
+                        titlepic.src="https://"+result[i].file.split("https://")[1];
+                    }
+                }).catch(function(error){
+                    console.error("Error fetching data:", error);
+                });
+            }
+            getdata()
+        </script>
+    </body>
+</html>     
