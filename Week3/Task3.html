@@ -101,7 +101,6 @@
                         let promotion=document.querySelector(`.main${i + 1} .word`);
                         promotion.textContent = result[i].stitle;
                         let promotionpic=document.querySelector(`.main${i + 1} .picture img`);
-                        // pic=result[i].file.split("https://")[1];
                         promotionpic.src="https://"+result[i].file.split("https://")[1];
                     }
 
@@ -109,7 +108,6 @@
                         let title=document.querySelector(`.main${i + 1} .word1`);
                         title.textContent = result[i].stitle;
                         let titlepic=document.querySelector(`.main${i + 1} .picture1 img`);
-                        // pic=result[i].file.split("https://")[1];
                         titlepic.src="https://"+result[i].file.split("https://")[1];
                     }
                 }).catch(function(error){
