@@ -4,7 +4,7 @@ import csv
 
 src="https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json"
 
-with task.urlopen(src) as response:
+with task.urlopen(src)as response:
     data=json.load(response)
 
 finaldata=data["result"]["results"]
