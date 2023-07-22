@@ -13,7 +13,6 @@ with open("attraction.csv", mode="w", newline="", encoding="utf-8") as file:
     attraction=csv.writer(file)
 
     for final in finaldata:
-
         address=final["address"][5:8]
 
         pic=final["file"].split("https://")[1]
