@@ -162,7 +162,9 @@
     text-align:center;
     line-height:center;
 }
-img{
+.picture img{
+    height:50px;
+    width:80px;
     object-fit:cover;    
 }
 @media (max-width:1200px){
