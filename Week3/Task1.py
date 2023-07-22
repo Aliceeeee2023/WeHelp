@@ -4,12 +4,12 @@ import csv
 
 src="https://padax.github.io/taipei-day-trip-resources/taipei-attractions-assignment.json"
 
-with task.urlopen(src)as response:
+with task.urlopen(src) as response:
     data=json.load(response)
 
 finaldata=data["result"]["results"]
 
-with open("attraction.csv", mode="w", newline="", encoding="utf-8")as file:
+with open("attraction.csv", mode="w", newline="", encoding="utf-8") as file:
     attraction=csv.writer(file)
 
     for final in finaldata:
@@ -36,7 +36,7 @@ for dic in finaldata:
     else:
         newdic[mrt]=[title]
 
-with open("mrt.csv", mode="w", newline="", encoding="utf-8")as file1:
+with open("mrt.csv", mode="w", newline="", encoding="utf-8") as file1:
     mrt=csv.writer(file1)
 
     for MRT, STATION in newdic.items():
