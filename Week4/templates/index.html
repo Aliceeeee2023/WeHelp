@@ -43,15 +43,7 @@
                 let username=document.getElementById("username");
                 let password=document.getElementById("password");
                 if(checkbox.checked){
-                    if(username.value === "test" && password.value === "test"){
-                        document.getElementById("signin").submit();
-                    }else if(username.value === "" || password.value === ""){
-                        event.preventDefault();     
-                        window.location.href="/error?message=請輸入使用者名稱和密碼";         
-                    }else{
-                        event.preventDefault();     
-                        window.location.href="/error?message=使用者名稱或密碼不正確";                   
-                    }
+                    document.getElementById("signin").submit();
                 }else{
                     event.preventDefault();
                     alert("請先勾選複選框");
