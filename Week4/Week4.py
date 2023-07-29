@@ -13,8 +13,8 @@ def index():
 
 @app.route("/signin", methods=["POST"])
 def signin():
-    username = request.form.get("username")
-    password = request.form.get("password")
+    username=request.form.get("username")
+    password=request.form.get("password")
 
     if username == "test" and password == "test":
         session["SIGNED-IN"]=True
