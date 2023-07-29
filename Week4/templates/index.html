@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>登入系統</title>
+        <style>
+            .title{
+                color:white;
+                font-size:30px;
+                text-align:center;
+                background-color: rgb(45, 86, 146);
+                padding:20px;
+                margin-bottom:20px;
+            }
+            .middle{
+                font-size:20px;
+                font-weight:bold;
+                text-align:center;
+                margin:0;            
+            }
+            .detail{
+                font-size:16px;
+                font-weight:normal;                
+                margin:10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="title">歡迎光臨，請輸入帳號密碼</div>
+        <div class="middle">
+            <div>登入系統</div>
+            <form action="/signin" method="POST" id="signin">
+                <div class="detail">帳號 <input type="text" id="username" name="username" /></div>
+                <div class="detail">密碼 <input type="text" id="password" name="password" /></div>
+                <div class="detail">同意條款 <input type="checkbox" id="checkbox"></div>  
+                <!-- <input type="hidden" name="space" id="space" value="">  -->
+                <div><button id="btn">登入</button></div>             
+            </form>        
+        </div>
+        <script>
+            let btn=document.getElementById("btn");
+            btn.addEventListener("click", function(){
+                let checkbox=document.getElementById("checkbox");
+                let username=document.getElementById("username");
+                let password=document.getElementById("password");
+                // let username=document.getElementsByName("username");
+                // let password=document.getElementsByName("password");
+                if(checkbox.checked){
+                    if(username.value === "test" && password.value === "test"){
+                        document.getElementById("signin").submit();
+                        // window.location.href="/member";
+                    }else if(username.value === "" || password.value === ""){
+                        event.preventDefault();     
+                        window.location.href="/error?message=請輸入使用者名稱和密碼";         
+                    }else{
+                        event.preventDefault();     
+                        window.location.href="/error?message=使用者名稱或密碼不正確";                   
+                    }
+                }else{
+                    event.preventDefault();
+                    alert("請先勾選複選框");
+                }
+            });
+        </script>
+    </body>
+</html>
