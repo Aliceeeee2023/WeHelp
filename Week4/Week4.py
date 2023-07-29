@@ -13,12 +13,17 @@ def index():
 
 @app.route("/signin", methods=["POST"])
 def signin():
+    # return redirect("/member")
     username=request.form.get("username")
     password=request.form.get("password")
 
     if username == "test" and password == "test":
         session["SIGNED-IN"]=True
         return redirect("/member")
+    elif username == "" or password == "":
+        return redirect("/error?message=請輸入使用者名稱和密碼")
+    elif username != "test" or password != "test":
+        return redirect("/error?message=使用者名稱或密碼不正確")
     else:
         session["SIGNED-IN"]=False
         return redirect("/")        
@@ -40,4 +45,10 @@ def error():
     message=request.args.get("message")
     return render_template("error.html", message=message)
   
+@app.route("/square")
+def calculate():
+    count=request.form.get("calculate")
+    result=int(count)**2
+    return render_template("calculate.html", result=result)
+
 app.run(port=3000)
