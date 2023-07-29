@@ -33,7 +33,6 @@
                 <div class="detail">帳號 <input type="text" id="username" name="username" /></div>
                 <div class="detail">密碼 <input type="text" id="password" name="password" /></div>
                 <div class="detail">同意條款 <input type="checkbox" id="checkbox"></div>  
-                <!-- <input type="hidden" name="space" id="space" value="">  -->
                 <div><button id="btn">登入</button></div>             
             </form>        
         </div>
@@ -43,8 +42,6 @@
                 let checkbox=document.getElementById("checkbox");
                 let username=document.getElementById("username");
                 let password=document.getElementById("password");
-                // let username=document.getElementsByName("username");
-                // let password=document.getElementsByName("password");
                 if(checkbox.checked){
                     if(username.value === "test" && password.value === "test"){
                         document.getElementById("signin").submit();
