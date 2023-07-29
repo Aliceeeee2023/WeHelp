@@ -13,7 +13,6 @@ def index():
 
 @app.route("/signin", methods=["POST"])
 def signin():
-    # return redirect("/member")
     username = request.form.get("username")
     password = request.form.get("password")
 
