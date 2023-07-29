@@ -45,7 +45,6 @@
                 if(checkbox.checked){
                     if(username.value === "test" && password.value === "test"){
                         document.getElementById("signin").submit();
-                        // window.location.href="/member";
                     }else if(username.value === "" || password.value === ""){
                         event.preventDefault();     
                         window.location.href="/error?message=請輸入使用者名稱和密碼";         
