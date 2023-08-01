@@ -62,32 +62,37 @@ UPDATE member SET name='test2' WHERE username='test';
 ```
 SELECT COUNT(*) FROM member;
 ```
-![image]()
+![image](https://raw.githubusercontent.com/Aliceeeee2023/WeHelp/main/Week5/Screendshot/4-001.png)
 
 * 取得 member 資料表中，所有會員 follower_count 欄位的總和。
 ```
 SELECT SUM(follower_count) FROM member;
 ```
+![image](https://raw.githubusercontent.com/Aliceeeee2023/WeHelp/main/Week5/Screendshot/4-002.png)
 
 * 取得 member 資料表中，所有會員 follower_count 欄位的平均數。
 ```
 SELECT AVG(follower_count) 'average_follower' FROM member;
 ```
+![image](https://raw.githubusercontent.com/Aliceeeee2023/WeHelp/main/Week5/Screendshot/4-003.png)
 
 ## 要求五：SQL JOIN
 * 使⽤ SELECT 搭配 JOIN 語法，取得所有留⾔，結果須包含留⾔者的姓名。
 ```
 SELECT * FROM member INNER JOIN message ON member.id=message.member_id;
 ```
+![image](https://raw.githubusercontent.com/Aliceeeee2023/WeHelp/main/Week5/Screendshot/5-001.png)
+![image](https://raw.githubusercontent.com/Aliceeeee2023/WeHelp/main/Week5/Screendshot/5-001-1.png)
 
 * 使⽤ SELECT 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有留⾔，資料中須包含留⾔者的姓名。
 ```
 SELECT * FROM member INNER JOIN message ON member.id=message.member_id WHERE username='test';
 ```
+![image](https://raw.githubusercontent.com/Aliceeeee2023/WeHelp/main/Week5/Screendshot/5-002.png)
 
 * 使⽤ SELECT、SQL Aggregate Functions 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有留⾔平均按讚數。
 ```
 SELECT AVG(like_count) 'average_like' FROM member INNER JOIN message ON member.id=message.member_id WHERE username='test';
 ```
-
+![image](https://raw.githubusercontent.com/Aliceeeee2023/WeHelp/main/Week5/Screendshot/5-003.png)
 
