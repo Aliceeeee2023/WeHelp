@@ -18,6 +18,7 @@ Query OK, 1 row affected (0.00 sec)
 mysql> INSERT INTO member(name, username, password) VALUES('Debby', 'test4', 'test4');
 Query OK, 1 row affected (0.00 sec)
 ```
+![image](https://raw.githubusercontent.com/Aliceeeee2023/WeHelp/main/Week5/Screendshot/3-001.png)
 
 * 使⽤ SELECT 指令取得所有在 member 資料表中的會員資料。
 ```
