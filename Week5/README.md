@@ -3,20 +3,11 @@
 ## 要求三：SQL CRUD
 * 使⽤ INSERT 指令新增⼀筆資料到 member 資料表中，這筆資料的 username 和 password 欄位必須是 test。接著繼續新增⾄少 4 筆隨意的資料。
 ```
-mysql> INSERT INTO member(name, username, password) VALUES('test', 'test', 'test');
-Query OK, 1 row affected (0.00 sec)
-
-mysql> INSERT INTO member(name, username, password) VALUES('Alice', 'test1', 'test1');
-Query OK, 1 row affected (0.00 sec)
-
-mysql> INSERT INTO member(name, username, password) VALUES('Ann', 'test2', 'test2');
-Query OK, 1 row affected (0.00 sec)
-
-mysql> INSERT INTO member(name, username, password) VALUES('Wendy', 'test3', 'test3');
-Query OK, 1 row affected (0.00 sec)
-
-mysql> INSERT INTO member(name, username, password) VALUES('Debby', 'test4', 'test4');
-Query OK, 1 row affected (0.00 sec)
+INSERT INTO member(name, username, password) VALUES('test', 'test', 'test');
+INSERT INTO member(name, username, password) VALUES('Alice', 'test1', 'test1');
+INSERT INTO member(name, username, password) VALUES('Ann', 'test2', 'test2');
+INSERT INTO member(name, username, password) VALUES('Wendy', 'test3', 'test3');
+INSERT INTO member(name, username, password) VALUES('Debby', 'test4', 'test4');
 ```
 ![image](https://raw.githubusercontent.com/Aliceeeee2023/WeHelp/main/Week5/Screendshot/3-001.png)
 
