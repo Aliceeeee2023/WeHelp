@@ -1,6 +1,5 @@
 from flask import Flask, request, redirect, render_template, session
-import mysql.connector
-import json
+import mysql.connector, json
 
 con = mysql.connector.connect(
     user="root",
