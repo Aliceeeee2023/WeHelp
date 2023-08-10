@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>登入系統</title>
+        <style>
+            .title {
+                color: white;
+                font-size: 30px;
+                text-align: center;
+                background-color: rgb(45, 86, 146);
+                padding: 20px;
+                margin-bottom: 20px;
+            }
+            .middle {
+                font-size: 20px;
+                font-weight: bold;
+                text-align: center;
+                margin: 0;            
+            }
+            .detail {
+                font-size: 16px;              
+                margin: 10px;
+            }
+            .message {
+                font-size: 16px;              
+            }
+            .hr {
+                margin: 30px;              
+            }
+        </style>
+    </head>
+    <body>
+        <div class="title">歡迎光臨，這是會員頁</div>
+        <div class="middle">
+            <div>{{ name }}，歡迎登入系統</div>  
+            <div class="detail"><a href="http://127.0.0.1:3000/signout" >登出系統</a></div>   
+        </div>
+
+        <hr class="hr" />  
+
+        <div class="middle">
+            <div>快來留言吧</div>
+            <form action="/createMessage" method="POST" id="createMessage">
+                <div class="detail">內容 <input type="text" id="message" name="message" /></div>
+                <div><button type="submit">送出</button></div>             
+            </form>        
+        </div>   
+
+        <hr class="hr" />
+
+        <script>
+            function getMessage(){
+                let name = {{ nameJson|safe }};
+                let content = {{ contentJson|safe }};
+
+                for(let i=0; i<name.length; i++){
+                    let message = document.createElement("div");
+                    message.className = "middle";
+
+                    let showName = document.createElement("span");
+                    showName.className = "middle";
+                    showName.textContent = name[i] + "：";                     
+
+                    let showContent = document.createElement("span");
+                    showContent.className = "message";
+                    showContent.textContent = content[i]; 
+
+                    message.appendChild(showName);
+                    message.appendChild(showContent);
+                    document.body.appendChild(message)
+                }
+            }
+
+            getMessage()
+        </script>
+    </body>
+</html>
