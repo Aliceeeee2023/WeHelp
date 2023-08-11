@@ -18,41 +18,51 @@ def index():
 @app.route("/signup", methods=["POST"])
 def signup():
     cursor = con.cursor()
-    cursor.execute("SELECT username FROM member")
-    data = cursor.fetchall()
 
     name = request.form["signup_name"]
     username = request.form["signup_username"]
     password = request.form["signup_password"]
 
-    for i in data:
-        if i[0] == username:
-            return redirect("/error?message=帳號已經被註冊")
+    cursor.execute("SELECT username FROM member WHERE username=%s", (username,))
+    data = cursor.fetchone()
 
-    cursor.execute("INSERT INTO member (name, username, password) VALUES(%s, %s, %s)", (name, username, password))
-    con.commit()
-    
-    return redirect("/")
+    if data is None:
+        cursor.execute("INSERT INTO member (name, username, password) VALUES(%s, %s, %s)", (name, username, password))
+        con.commit()
+
+        return redirect("/")        
+    else:
+        return redirect("/error?message=帳號已經被註冊")
 
 @app.route("/signin", methods=["POST"])
 def signin():
     cursor = con.cursor()
-    cursor.execute("SELECT id, name, username, password FROM member")
-    data = cursor.fetchall()
 
     checkUsername = request.form["signin_username"]
     checkPassword = request.form["signin_password"]
 
-    for id, name, username, password in data:
-        if username == checkUsername and password == checkPassword:
+    cursor.execute("SELECT id, name, username, password FROM member WHERE username=%s", (checkUsername,))
+    data = cursor.fetchone()
+
+    if data is None:
+        return redirect("/error?message=帳號或密碼輸入錯誤") 
+    else:
+        id, name, username, password = data
+        
+        if password != checkPassword:
+            return redirect("/error?message=帳號或密碼輸入錯誤") 
+        else:            
             session["userId"] = id       
             session["name"] = name   
             session["userName"] = username
             session["userPassword"] = password
             session["signIn"] = True
             return redirect("/member")
-    
-    return redirect("/error?message=帳號或密碼輸入錯誤") 
+
+@app.route("/signout")
+def signout():
+    session.pop("signIn", None)
+    return redirect("/")
 
 @app.route("/member")
 def member():
@@ -71,15 +81,10 @@ def member():
         nameJson = json.dumps(nameData)
         contentJson = json.dumps(contentData)
 
-        name = session["name"]        
+        name = session["name"]
         return render_template("member.html", name=name, nameJson=nameJson, contentJson=contentJson)
     else:
         return redirect("/")
-
-@app.route("/signout")
-def signout():
-    session.pop("signIn", None)
-    return redirect("/")
 
 @app.route("/createMessage", methods=["POST"])
 def createMessage():
@@ -90,6 +95,7 @@ def createMessage():
 
     cursor.execute("INSERT INTO message (member_id, content) VALUES(%s, %s)", (id, message))
     con.commit()
+    
     return redirect("/member")
 
 @app.route("/error")
