@@ -111,7 +111,7 @@ def update_name():
     userName = session["userName"]
     cursor.execute("UPDATE member SET name=%s WHERE username=%s", (newName, userName))
     
-    if newName is None or oldName == newName:
+    if oldName == newName:
         return jsonify({"error":True})
     else:
         con.commit()
