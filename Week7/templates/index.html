@@ -36,7 +36,7 @@
                 <div class="detail">姓名 <input type="text" id="signup_name" name="signup_name" /></div>
                 <div class="detail">帳號 <input type="text" id="signup_username" name="signup_username" /></div>
                 <div class="detail">密碼 <input type="password" id="signup_password" name="signup_password" /></div> <!-- input type="password" 代表輸入的東西會隱碼 -->
-                <div><button type="submit" id="signup_btn">註冊</button></div> <!-- 用 button type="submit" 來提交表單 -->
+                <div><button type="submit" id="signup_btn">註冊</button></div>
             </form>        
         </div>
 
@@ -54,12 +54,11 @@
         <script>
             let signup_btn = document.getElementById("signup_btn");
             signup_btn.addEventListener("click", function(event){
-                let name = document.getElementById("signup_name").value; // 用 value 來取得表單內容的值
+                let name = document.getElementById("signup_name").value;
                 let username = document.getElementById("signup_username").value;
                 let password = document.getElementById("signup_password").value;
 
-                // if(name.trim() !== "" && username.trim() !== "" && password.trim() !== ""){  // 用 trim 來去除字符前後的空格或空白字符                
-                if(name !== "" && username !== "" && password !== ""){ // 判斷三個資料皆非空值
+                if(name !== "" && username !== "" && password !== ""){
                     document.getElementById("signup").submit();
                 }else{
                     event.preventDefault();
