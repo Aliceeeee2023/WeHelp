@@ -101,7 +101,7 @@
                 let getMember = document.getElementById("checkMember");
                 let username = getMember.value;
 
-                if(username === ""){
+                if(username.trim() === ""){
                     alert("請輸入帳號");
                     return;
                 }
@@ -124,7 +124,7 @@
                 let updateName = document.getElementById("updateName");
                 let newName = updateName.value;
 
-                if(newName === ""){
+                if(newName.trim() === ""){
                     alert("請勿輸入空值");
                     return;
                 }
