@@ -4,7 +4,7 @@
 <font size="5">組員：楊于葳（組長）、徐欣彤、陳佳欣、張嘉媛、丁育如</font>
 
 ## 組內分工
-- 組長／楊于葳 [<img src="static/images/link.png" style="line-height:20px" height="20px"/>](https://github.com/ywyang236)
+- 組長／楊于葳 [<img src="static/images/link.png" style="line-height:18px" height="18px"/>](https://github.com/ywyang236)
 
     - 取得團隊信任
     - 繪製網站設計圖初稿、建立基礎專案程式架構
